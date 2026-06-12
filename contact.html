@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="联系Bopep比波普音乐工作室 · 预约免费体验课 · 车老师 · 少儿吉他教育">
+    <title>联系我们 — Bopep比波普音乐工作室</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<header class="navbar">
+    <div class="container">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-icon">&#119070;</span>
+            BOPEP · 比波普
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="about.html">关于</a>
+            <a href="courses.html">课程</a>
+            <a href="gallery.html">学员风采</a>
+            <a href="performances.html">演奏</a>
+            <a href="contact.html" class="active">联系</a>
+        </nav>
+        <button class="nav-toggle" aria-label="菜单">
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<main class="page-body">
+
+<!-- ============================================================
+     PAGE HEADER
+     ============================================================ -->
+<section class="page-header page-intro">
+    <div class="container">
+        <h1 class="page-title animate-in">联系我们</h1>
+        <hr class="gold-divider">
+        <p class="page-subtitle animate-in">预约免费体验课，或了解更多课程信息</p>
+    </div>
+</section>
+
+<!-- ============================================================
+     CONTACT CARDS
+     ============================================================ -->
+<section class="section section-dark">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="card contact-card animate-in">
+                <span class="contact-icon">&#128205;</span>
+                <span class="contact-label">工作室地址</span>
+                <span class="contact-value">甘肃省兰州市南关十字民安大厦A塔1207室（比波普BOPEP音乐)</span>
+            </div>
+            <div class="card contact-card animate-in">
+                <span class="contact-icon">&#128222;</span>
+                <span class="contact-label">联系电话</span>
+                <span class="contact-value">18919925348</span>
+            </div>
+            <div class="card contact-card animate-in">
+                <span class="contact-icon">&#128172;</span>
+                <span class="contact-label">微信咨询</span>
+                <span class="contact-value">cxf810529</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     WECHAT QR + MAP
+     ============================================================ -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="grid-2">
+            <!-- WeChat QR card -->
+            <div class="card qr-card animate-in">
+                <h3 style="color:var(--color-gold-primary);margin-bottom:var(--space-lg);">&#128242; 微信扫码咨询</h3>
+                <div class="qr-placeholder">
+                    <img src="assets/images/wechat.jpg" alt="微信二维码">
+                </div>
+                <p style="color:var(--color-text-muted);font-size:var(--text-sm);margin-top:var(--space-md);">
+                    微信号：cxf810529
+                </p>
+                <p style="color:var(--color-text-muted);font-size:var(--text-xs);margin-top:var(--space-xs);">
+                    添加好友时请备注「吉他体验」
+                </p>
+            </div>
+
+            <!-- Map -->
+            <div class="animate-in">
+                <h3 style="color:var(--color-gold-primary);margin-bottom:var(--space-lg);text-align:center;">&#128506; 工作室位置</h3>
+                <div id="baidu-map" style="width:100%;height:350px;border-radius:var(--radius-md);border:1px solid rgba(201,168,76,0.15);"></div>
+                <p style="color:var(--color-text-secondary);font-size:var(--text-sm);margin-top:var(--space-md);text-align:center;">
+                    &#128205; 甘肃省兰州市南关十字民安大厦A塔1207室（比波普BOPEP音乐)
+                </p>
+                <p style="color:var(--color-text-muted);font-size:var(--text-xs);text-align:center;">
+                    <a href="https://j.map.baidu.com/ba/M3qM" target="_blank" rel="noopener">&#128279; 在百度地图中查看</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CONTACT FORM
+     ============================================================ -->
+<section class="section section-dark">
+    <div class="container" style="max-width:700px;">
+        <h3 class="page-title animate-in" style="font-size:var(--text-2xl);">&#128221; 在线留言</h3>
+        <hr class="gold-divider">
+        <p class="page-subtitle animate-in">留下您的信息，我们会尽快与您联系</p>
+
+        <div class="animate-in">
+            <form id="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="form-name">家长姓名 <span class="required">*</span></label>
+                        <input type="text" id="form-name" class="form-input"
+                               placeholder="请输入您的姓名" required autocomplete="name">
+                        <span class="form-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-phone">手机号码 <span class="required">*</span></label>
+                        <input type="tel" id="form-phone" class="form-input"
+                               placeholder="请输入您的手机号码" required autocomplete="tel">
+                        <span class="form-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="form-message">留言内容 <span class="required">*</span></label>
+                    <textarea id="form-message" class="form-input"
+                              placeholder="请简单说明孩子的基本情况（年龄、是否有基础、感兴趣的课程等），方便我们为您安排合适的体验课"
+                              required minlength="10"></textarea>
+                    <span class="form-error"></span>
+                </div>
+
+                <div style="text-align:center;">
+                    <button type="submit" class="btn btn-primary btn-lg">提交留言</button>
+                    <p style="margin-top:var(--space-md);font-size:var(--text-xs);color:var(--color-text-muted);">
+                        或直接添加微信咨询：cxf810529
+                    </p>
+                </div>
+            </form>
+
+            <!-- Success message (hidden by default) -->
+            <div id="form-success" class="form-success">
+                <div class="success-icon">&#10004;</div>
+                <h3>感谢您的留言！</h3>
+                <p>我们会尽快与您联系。<br>
+                您也可以直接添加微信：<strong style="color:#C9A84C;">cxf810529</strong><br>
+                <span style="font-size:var(--text-xs);margin-top:var(--space-sm);display:inline-block;">
+                添加好友时请备注「吉他体验」</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="section section-dark">
+    <div class="container">
+        <div class="cta-banner animate-in">
+            <h3>&#127941; 限前20名 · 免费体验课</h3>
+            <p>45分钟1对1专属体验 · 零基础友好 · 无任何隐形消费<br>
+            带孩子来工作室感受一次真正的吉他课</p>
+            <p style="font-size:var(--text-sm);color:var(--color-gold-muted);margin-bottom:var(--space-md);">
+                预约后我们将在24小时内与您联系确认体验时间
+            </p>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">&#119070; BOPEP · 比波普音乐工作室</div>
+                <p>专业儿童吉他教育 · 少儿电声乐团<br>始于2014 · 十八年教学经验</p>
+            </div>
+            <div class="footer-nav">
+                <h4>快速导航</h4>
+                <a href="index.html">首页</a>
+                <a href="about.html">关于车老师</a>
+                <a href="courses.html">课程介绍</a>
+                <a href="gallery.html">学员风采</a>
+                <a href="performances.html">车老师演奏</a>
+                <a href="contact.html">联系我们</a>
+            </div>
+            <div class="footer-contact">
+                <h4>联系方式</h4>
+                <p>&#128205; 甘肃省兰州市南关十字民安大厦A塔1207室（比波普BOPEP音乐)</p>
+                <p>&#128222; 18919925348</p>
+                <p>&#128172; 微信：cxf810529</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bopep比波普音乐工作室. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function() {
+    // Studio location: 兰州市南关十字民安大厦
+    var lat = 36.0585;
+    var lng = 103.8245;
+    var map = L.map('baidu-map', {
+        center: [lat, lng],
+        zoom: 17,
+        zoomControl: true
+    });
+
+    // Tile layer — OpenStreetMap (free, no API key)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 19
+    }).addTo(map);
+
+    // Marker
+    var marker = L.marker([lat, lng]).addTo(map);
+    marker.bindPopup(
+        '<strong>BOPEP · 比波普音乐工作室</strong><br>' +
+        '甘肃省兰州市南关十字<br>民安大厦A塔1207室'
+    ).openPopup();
+
+    // Fix map rendering issues on hidden/loaded containers
+    setTimeout(function() { map.invalidateSize(); }, 100);
+})();
+</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
