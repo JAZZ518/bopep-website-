@@ -5,10 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="description" content="联系Bopep比波普音乐工作室 · 预约免费体验课 · 车老师 · 少儿吉他教育">
     <title>联系我们 — Bopep比波普音乐工作室</title>
+    <meta property="og:title" content="联系我们 — Bopep比波普音乐工作室">
+    <meta property="og:description" content="预约免费体验课 · 45分钟1对1 · 零基础友好">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://YOUR_DOMAIN/contact.html">
+    <meta property="og:image" content="https://YOUR_DOMAIN/assets/images/wechat.jpg">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <!-- 百度统计 — 部署时替换 YOUR_BAIDU_TONGJI_ID -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?YOUR_BAIDU_TONGJI_ID";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
 </head>
 <body>
 
@@ -213,34 +226,41 @@
     </div>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_BAIDU_MAP_AK"></script>
 <script>
 (function() {
-    // Studio location: 兰州市南关十字民安大厦
+    // 工作室坐标（BD-09 坐标系）
+    // 百度地图 ak 申请地址：https://lbsyun.baidu.com/apiconsole/key
     var lat = 36.0585;
     var lng = 103.8245;
-    var map = L.map('baidu-map', {
-        center: [lat, lng],
-        zoom: 17,
-        zoomControl: true
+
+    var map = new BMap.Map('baidu-map', {
+        enableMapClick: false
     });
+    map.centerAndZoom(new BMap.Point(lng, lat), 17);
+    map.enableScrollWheelZoom(true);
+    map.addControl(new BMap.NavigationControl());
+    map.addControl(new BMap.ScaleControl());
 
-    // Tile layer — OpenStreetMap (free, no API key)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-        maxZoom: 19
-    }).addTo(map);
+    var marker = new BMap.Marker(new BMap.Point(lng, lat));
+    map.addOverlay(marker);
 
-    // Marker
-    var marker = L.marker([lat, lng]).addTo(map);
-    marker.bindPopup(
-        '<strong>BOPEP · 比波普音乐工作室</strong><br>' +
-        '甘肃省兰州市南关十字<br>民安大厦A塔1207室'
-    ).openPopup();
+    var infoWindow = new BMap.InfoWindow(
+        '<div style="padding:4px;line-height:1.8;">' +
+        '<strong style="font-size:14px;">BOPEP · 比波普音乐工作室</strong><br>' +
+        '甘肃省兰州市南关十字<br>民安大厦A塔1207室' +
+        '</div>'
+    );
+    marker.addEventListener('click', function() {
+        this.openInfoWindow(infoWindow);
+    });
+    infoWindow.disableAutoPan();
+    marker.openInfoWindow(infoWindow);
 
-    // Fix map rendering issues on hidden/loaded containers
-    setTimeout(function() { map.invalidateSize(); }, 100);
+    // 移动端点击标记打开地图 App
+    marker.addEventListener('click', function() {
+        window.open('https://j.map.baidu.com/ba/M3qM');
+    });
 })();
 </script>
 <script src="assets/js/main.js"></script>
